@@ -158,35 +158,55 @@ docker image prune -f
 ## Testing
 
 - You can check both Flask API or Streamlit to check recent popular news headlines and the source
-- For Flask API test, try: **http://localhost:5000/predict/<headline>**
+- For Flask API test, try: **localhost:5000/predict/your-own-headline**
 - Some random generated news headlines for testing:
 
 🔹 Tech News Headlines
+
 1️⃣ Apple Unveils AI-Powered iPhone 16 at Global Event
+
 2️⃣ Google’s Quantum Computer Solves Problem in 3 Seconds
+
 3️⃣ Tesla Launches Fully Autonomous Cybertruck in 2025
+
 4️⃣ Meta Introduces AI Avatars for Virtual Meetings
+
 5️⃣ Elon Musk’s Starlink Reaches 10 Million Users Worldwide
 
 🎮 Gaming News Headlines
+
 6️⃣ GTA 6 Trailer Drops, Release Date Set for 2026
+
 7️⃣ Sony Announces PlayStation 6 With 8K Ray Tracing
+
 8️⃣ Elden Ring DLC “Shadow of Erdtree” Gets a New Trailer
+
 9️⃣ Nintendo Switch 2 Rumors Point to Late 2024 Launch
+
 🔟 Minecraft Surpasses 500 Million Copies Sold Worldwide
 
 💰 Finance & Economy News Headlines
+
 1️⃣1️⃣ Bitcoin Hits Record High of $150,000 After ETF Approval
+
 1️⃣2️⃣ Stock Market Surges as Inflation Fears Ease
+
 1️⃣3️⃣ Federal Reserve Cuts Interest Rates for the First Time in 5 Years
+
 1️⃣4️⃣ Amazon Reports $1 Trillion in Revenue for 2024
+
 1️⃣5️⃣ Gold Prices Soar as Global Economic Uncertainty Grows
 
 🔬 Science & Space News Headlines
+
 1️⃣6️⃣ NASA’s Artemis Mission Successfully Lands Astronauts on the Moon
+
 1️⃣7️⃣ Scientists Discover New Exoplanet That Could Support Life
+
 1️⃣8️⃣ Breakthrough in Nuclear Fusion Brings Clean Energy Closer
+
 1️⃣9️⃣ AI-Powered Robots to Assist in Future Mars Missions
+
 2️⃣0️⃣ James Webb Telescope Detects Signs of Water on Distant Planet
 
 The results are not good enough for having lack of labeled data. Since the latest news were all related to either gaming or tech, testing works better in these categories than others.
