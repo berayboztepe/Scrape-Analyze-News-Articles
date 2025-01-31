@@ -4,11 +4,17 @@
 This project automates the process of **scraping, analyzing, and classifying news articles** using **Flask, Streamlit, PostgreSQL, and Machine Learning models** inside Docker containers. The system:
 
 ✅ **Fetches news** from an external API (NewsAPI)
+
 ✅ **Saves data** into PostgreSQL
+
 ✅ **Cleans & preprocesses** the text
+
 ✅ **Classifies news sources** using ML models
+
 ✅ **Finds the best-performing model** dynamically
+
 ✅ **Saves the trained model** for real-time predictions in Streamlit
+
 ✅ **Runs inside Docker for full automation**
 
 **It does that everytime you run the docker. So, it always stays up-to-date**
