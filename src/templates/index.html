@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 News Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📰 Latest News</h1>
+    
+    <div id="news-container">
+        <p>Loading news...</p>
+    </div>
+
+    <script>
+        async function fetchNews() {
+            try {
+                let response = await fetch("/news");  // 🔹 Fetch news data from Flask
+                let news = await response.json();
+                let container = document.getElementById("news-container");
+                
+                if (news.length === 0) {
+                    container.innerHTML = "<p>No news available.</p>";
+                    return;
+                }
+
+                // 🔹 Build news articles dynamically
+                container.innerHTML = "";
+                news.forEach(article => {
+                    let articleElement = document.createElement("div");
+                    articleElement.classList.add("news-item");
+                    
+                    articleElement.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p>${article.description || "No description available."}</p>
+                        <small>📅 ${article.publishedAt} | 🏢 Source: ${article.source}</small>
+                        <hr>
+                    `;
+
+                    container.appendChild(articleElement);
+                });
+            } catch (error) {
+                console.error("Error fetching news:", error);
+                document.getElementById("news-container").innerHTML = "<p>⚠️ Failed to load news.</p>";
+            }
+        }
+
+        fetchNews();  // 🔹 Call function on page load
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+beautifulsoup4
+pandas
+numpy
+matplotlib
+seaborn
+nltk
+spacy
+wordcloud
+Flask
+python-dotenv
+streamlit
+psycopg2
+scikit-learn

@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: newsdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  fetcher:
+    build:
+      context: .
+      dockerfile: Dockerfile-fetcher
+    env_file:
+      - .env
+    volumes:
+      - ./models:/app/models
+    depends_on:
+      - db
+    restart: "no"
+
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile-flask
+    volumes:
+      - ./models:/app/models 
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+      - fetcher
+    env_file:
+      - .env
+    restart: always
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile-streamlit
+    ports:
+      - "8501:8501"
+    depends_on:
+      - flask
+    restart: always
+
+volumes:
+  db_data:

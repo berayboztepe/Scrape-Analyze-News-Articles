@@ -1,0 +1,15 @@
+venv/
+.venv/
+
+__pycache__/
+*.log
+
+models/
+*.pkl
+
+*.csv
+*.pkl
+.env
+
+.dockerignore
+*.tar

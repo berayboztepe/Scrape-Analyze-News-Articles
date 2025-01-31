@@ -1,0 +1,15 @@
+FROM python:3.9
+
+WORKDIR /app
+
+COPY frontend/ /app/
+COPY models/ /app/models/
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY frontend/ .
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "/app/news_dashboard.py"]
